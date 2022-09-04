@@ -1,0 +1,26 @@
+#　Custom rules
+custom_rules:
+
+#1行
+#　returnのみ
+#　　その行で返す -> OK
+#　　その行で返さない -> 警告 -> OK
+#　return以外もある
+#　　OK -> OK
+#
+#複数業
+#　returnのみ
+#　　その行で返す -> OK
+#　　その行で返さない -> 警告 -> OK
+#　return以外もある
+#　　OK -> OK
+    guard else return violation:
+        name: "guard else return violation"
+        regex: "(guard .* else \\{\n\\s*return)"
+        message: "guard elseブロックがreturnのみの場合はelseと同じ行でreturnしてください"
+
+#    space violation:
+#        # 一行のみならその場でreturnしていないかもしれない判定ができる
+#        name: " space violation"
+#        regex: "(.*(\s).*)"
+#        message: " space violation"
